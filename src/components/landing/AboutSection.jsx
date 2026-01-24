@@ -40,27 +40,29 @@ export default function AboutSection() {
             {/* Right: Text */}
             <div className="space-y-6">
               <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 leading-snug">
-                Technische Tiefe trifft auf klare Kommunikation
+                Technische Kompetenz trifft auf strukturierte Arbeitsweise
               </h2>
               
               <div className="space-y-4 text-slate-600 leading-relaxed">
                 <p>
-                  Als IT-Support-Spezialist mit mehrjähriger Praxis in technischen 
-                  Support-Umgebungen bei internationalen Unternehmen – darunter 
-                  Mercedes-Benz und Lenovo – verbinde ich technische Analyse mit 
-                  strukturierter Fehlerbehebung und professioneller Kundenkommunikation.
+                  Sven Kai Clauß ist ein erfahrener IT-Support-Spezialist mit mehrjähriger 
+                  Praxis in professionellen Support-Umgebungen, unter anderem bei 
+                  Mercedes-Benz und Lenovo. Sein Schwerpunkt liegt auf strukturierter 
+                  Fehleranalyse, nachhaltiger Problemlösung und sauberer technischer 
+                  Dokumentation.
                 </p>
                 <p>
-                  Mein Fokus liegt auf nachhaltigen Lösungen, sauberer Dokumentation 
-                  und effizienten Prozessen. Ich glaube daran, dass guter Support 
-                  nicht nur Probleme löst, sondern Wissen teilt und Prozesse verbessert.
+                  Er verbindet technische Kompetenz mit klarer, verständlicher 
+                  Kundenkommunikation und arbeitet sicher in komplexen Support- und 
+                  Eskalationsumgebungen. Qualität, saubere Prozesse und nachvollziehbare 
+                  Lösungen stehen im Mittelpunkt seiner Arbeitsweise.
                 </p>
               </div>
 
               {/* Stats */}
               <div className="flex gap-8 pt-4">
                 <div>
-                  <div className="text-3xl font-semibold text-slate-900">7+</div>
+                  <div className="text-3xl font-semibold text-slate-900">5+</div>
                   <div className="text-sm text-slate-500">Jahre Erfahrung</div>
                 </div>
                 <div className="w-px bg-slate-200" />

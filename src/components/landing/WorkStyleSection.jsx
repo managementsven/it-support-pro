@@ -8,12 +8,12 @@ const workStyles = [
   "Lösungsorientiert und zuverlässig",
   "Klare, verständliche Kommunikation",
   "Teamorientiert und qualitätsbewusst",
-  "Fokus auf nachhaltige Lösungen statt Quick Fixes"
+  "Fokus auf nachhaltige Lösungen statt kurzfristiger Workarounds"
 ];
 
 const languages = [
   { name: "Deutsch", level: "Fließend", percent: 100 },
-  { name: "Englisch", level: "Sehr gut", percent: 90 }
+  { name: "Englisch", level: "Sehr gut", percent: 92 }
 ];
 
 export default function WorkStyleSection() {

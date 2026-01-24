@@ -6,20 +6,22 @@ const experiences = [
   {
     company: "Lenovo",
     role: "Premier Technical Support Specialist",
-    description: "Technischer Support für komplexe Hard- und Softwareprobleme im Windows-Umfeld, Eskalationsbearbeitung, Kundenberatung, Prozessverbesserung und Wissenstransfer innerhalb des Teams.",
+    period: "seit April 2024",
+    description: "Technischer Support für komplexe Hard- und Softwareprobleme im Windows-Umfeld. Bearbeitung anspruchsvoller Supportfälle und Eskalationen, strukturierte Root-Cause-Analysen sowie Beratung von Kunden zur Optimierung von Systemen. Enge Zusammenarbeit mit internen Teams, saubere Dokumentation und aktiver Wissenstransfer.",
     highlight: true
   },
   {
     company: "Mercedes-Benz",
     role: "Technical Service Representative",
     subtitle: "Customer Assistance Center",
-    description: "Mehrjährige Erfahrung im technischen Kundenservice, Analyse komplexer Problemstellungen, Zusammenarbeit mit höheren Support-Ebenen, Dokumentation, Schulungen und Prozessoptimierung.",
+    period: "2020–2023",
+    description: "Mehrjährige Tätigkeit im technischen Kundenservice mit Fokus auf Analyse komplexer Fragestellungen. Zusammenarbeit mit höheren Support-Ebenen, hohe Dokumentationsqualität sowie Mitwirkung an Schulungen und Prozessverbesserungen.",
     highlight: true
   },
   {
     company: "Weitere Stationen",
     role: "Technischer Support & Kundenservice",
-    description: "Verschiedene Rollen mit Fokus auf Kundenkontakt, technischer Unterstützung, Dokumentation und Prozessverbesserung. Diese Tätigkeiten legten das Fundament für Serviceorientierung, Teamarbeit und Verantwortungsbewusstsein.",
+    description: "Technischer Support und Kundenservice in verschiedenen Rollen mit direktem Kundenkontakt, Dokumentation und Unterstützung bei Hard- und Softwareproblemen. Diese Stationen bilden das Fundament für Serviceorientierung, Teamarbeit und technische Zuverlässigkeit.",
     highlight: false
   }
 ];
@@ -81,6 +83,11 @@ export default function ExperienceSection() {
                     {exp.subtitle && (
                       <p className="text-sm text-slate-500">
                         {exp.subtitle}
+                      </p>
+                    )}
+                    {exp.period && (
+                      <p className="text-sm text-slate-500 mt-1">
+                        {exp.period}
                       </p>
                     )}
                   </div>

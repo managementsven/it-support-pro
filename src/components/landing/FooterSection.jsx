@@ -20,8 +20,8 @@ export default function FooterSection() {
           <div className="text-6xl text-slate-200 font-serif mb-6">"</div>
           
           <p className="text-xl md:text-2xl text-slate-700 leading-relaxed mb-8">
-            Ich schätze Umgebungen, in denen technische Qualität, klare Prozesse 
-            und professionelle Zusammenarbeit im Mittelpunkt stehen.
+            Ich arbeite gerne in Umgebungen, in denen technische Qualität, klare 
+            Prozesse und professionelle Zusammenarbeit im Vordergrund stehen.
           </p>
 
           {/* Subtle divider */}
@@ -32,8 +32,8 @@ export default function FooterSection() {
       {/* Footer */}
       <div className="max-w-4xl mx-auto px-6 mt-16 pt-8 border-t border-slate-100">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
-          <span>© {new Date().getFullYear()}</span>
-          <span>IT-Support Spezialist</span>
+          <span>© {new Date().getFullYear()} Sven Kai Clauß</span>
+          <span>Nordrhein-Westfalen, Deutschland</span>
         </div>
       </div>
     </section>

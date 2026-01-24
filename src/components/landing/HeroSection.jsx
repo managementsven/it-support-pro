@@ -24,22 +24,23 @@ export default function HeroSection() {
               <Monitor className="w-5 h-5 text-white" />
             </div>
             <span className="text-slate-500 text-sm font-medium tracking-wide uppercase">
-              IT-Support Spezialist
+              Sven Kai Clauß
             </span>
           </div>
 
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-900 leading-tight tracking-tight">
-            Technische Probleme
+            IT-Support mit technischer Tiefe,
             <br />
-            <span className="text-slate-500">strukturiert lösen.</span>
+            <span className="text-slate-500">Struktur und Verantwortung.</span>
           </h1>
 
           {/* Intro Text */}
           <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
-            Erfahrener IT-Support mit Fokus auf nachhaltige Problemlösung, 
-            klare Kommunikation und effiziente Prozesse. Mehrjährige Praxis 
-            bei internationalen Unternehmen – von der Analyse bis zur Dokumentation.
+            Mehrjährige Erfahrung im professionellen IT-Support bei internationalen 
+            Unternehmen wie Mercedes-Benz und Lenovo. Strukturierte Fehleranalyse, 
+            nachhaltige Lösungen und klare Dokumentation – von der ersten Anfrage 
+            bis zur finalen Problemlösung.
           </p>
 
           {/* Subtle line */}
