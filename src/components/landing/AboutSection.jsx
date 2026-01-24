@@ -7,69 +7,54 @@ export default function AboutSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-24 md:py-32 bg-white">
-      <div className="max-w-4xl mx-auto px-6">
+    <section id="about" className="py-32 md:py-40 bg-white border-b border-slate-100">
+      <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="space-y-8"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5 }}
+          className="space-y-16"
         >
           {/* Section Label */}
-          <div className="flex items-center gap-4">
-            <div className="w-8 h-px bg-slate-300" />
-            <span className="text-sm font-medium text-slate-500 uppercase tracking-wider">
+          <div>
+            <span className="text-sm font-medium text-slate-400 uppercase tracking-widest">
               Über mich
             </span>
           </div>
 
           {/* Content */}
-          <div className="grid md:grid-cols-[1fr,2fr] gap-12 items-start">
-            {/* Left: Visual element */}
-            <div className="hidden md:block">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-slate-100 to-slate-50 border border-slate-200/50 relative overflow-hidden">
-                <div className="absolute inset-4 border border-dashed border-slate-200 rounded-xl" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="h-2 bg-slate-200 rounded-full mb-2 w-3/4" />
-                  <div className="h-2 bg-slate-100 rounded-full w-1/2" />
-                </div>
-              </div>
+          <div className="max-w-3xl space-y-8">
+            <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 leading-tight">
+              Technische Kompetenz trifft auf strukturierte Arbeitsweise
+            </h2>
+            
+            <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
+              <p>
+                Sven Kai Clauß ist ein erfahrener IT-Support-Spezialist mit mehrjähriger 
+                Praxis in professionellen Support-Umgebungen, unter anderem bei 
+                Mercedes-Benz und Lenovo. Sein Schwerpunkt liegt auf strukturierter 
+                Fehleranalyse, nachhaltiger Problemlösung und sauberer technischer 
+                Dokumentation.
+              </p>
+              <p>
+                Er verbindet technische Kompetenz mit klarer, verständlicher 
+                Kundenkommunikation und arbeitet sicher in komplexen Support- und 
+                Eskalationsumgebungen. Qualität, saubere Prozesse und nachvollziehbare 
+                Lösungen stehen im Mittelpunkt seiner Arbeitsweise.
+              </p>
             </div>
 
-            {/* Right: Text */}
-            <div className="space-y-6">
-              <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 leading-snug">
-                Technische Kompetenz trifft auf strukturierte Arbeitsweise
-              </h2>
-              
-              <div className="space-y-4 text-slate-600 leading-relaxed">
-                <p>
-                  Sven Kai Clauß ist ein erfahrener IT-Support-Spezialist mit mehrjähriger 
-                  Praxis in professionellen Support-Umgebungen, unter anderem bei 
-                  Mercedes-Benz und Lenovo. Sein Schwerpunkt liegt auf strukturierter 
-                  Fehleranalyse, nachhaltiger Problemlösung und sauberer technischer 
-                  Dokumentation.
-                </p>
-                <p>
-                  Er verbindet technische Kompetenz mit klarer, verständlicher 
-                  Kundenkommunikation und arbeitet sicher in komplexen Support- und 
-                  Eskalationsumgebungen. Qualität, saubere Prozesse und nachvollziehbare 
-                  Lösungen stehen im Mittelpunkt seiner Arbeitsweise.
-                </p>
+            {/* Stats */}
+            <div className="flex gap-12 pt-8">
+              <div>
+                <div className="text-4xl font-semibold text-slate-900 mb-1">5+</div>
+                <div className="text-sm text-slate-500 uppercase tracking-wide">Jahre Erfahrung</div>
               </div>
-
-              {/* Stats */}
-              <div className="flex gap-8 pt-4">
-                <div>
-                  <div className="text-3xl font-semibold text-slate-900">5+</div>
-                  <div className="text-sm text-slate-500">Jahre Erfahrung</div>
-                </div>
-                <div className="w-px bg-slate-200" />
-                <div>
-                  <div className="text-3xl font-semibold text-slate-900">3</div>
-                  <div className="text-sm text-slate-500">Support-Level</div>
-                </div>
+              <div className="w-px bg-slate-200" />
+              <div>
+                <div className="text-4xl font-semibold text-slate-900 mb-1">1-3</div>
+                <div className="text-sm text-slate-500 uppercase tracking-wide">Support-Level</div>
               </div>
             </div>
           </div>
