@@ -7,7 +7,7 @@ const workStyles = [
   "Lösungsorientiert und zuverlässig",
   "Klare, verständliche Kommunikation",
   "Teamorientiert und qualitätsbewusst",
-  "Fokus auf nachhaltige Lösungen statt kurzfristiger Workarounds"
+  "Nachhaltige Lösungen statt kurzfristiger Workarounds"
 ];
 
 const languages = [
@@ -20,61 +20,54 @@ export default function WorkStyleSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-32 md:py-40 bg-slate-50/50 border-b border-slate-100">
-      <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
+    <section className="py-32 bg-[#0a0a0a] border-t border-zinc-800/50">
+      <div className="max-w-6xl mx-auto px-6 md:px-8 lg:px-12">
         <motion.div
           ref={ref}
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
-          className="grid md:grid-cols-[1.5fr,1fr] gap-20"
+          className="grid md:grid-cols-2 gap-12"
         >
           {/* Work Style */}
-          <div className="space-y-12">
-            <div>
-              <span className="text-sm font-medium text-slate-400 uppercase tracking-widest">
-                Arbeitsweise
-              </span>
+          <div className="space-y-8">
+            <div className="font-mono text-xs text-zinc-600 uppercase tracking-widest">
+              <span className="text-cyan-400">[</span> 04 <span className="text-cyan-400">]</span> Arbeitsweise
             </div>
 
-            <ul className="space-y-5">
+            <ul className="space-y-4">
               {workStyles.map((style, index) => (
                 <motion.li
                   key={style}
                   initial={{ opacity: 0 }}
                   animate={isInView ? { opacity: 1 } : {}}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="flex items-start gap-4 text-lg text-slate-700"
+                  className="flex items-start gap-3 text-zinc-300"
                 >
-                  <div className="w-1.5 h-1.5 rounded-full bg-slate-900 mt-2.5 flex-shrink-0" />
-                  <span>{style}</span>
+                  <span className="text-cyan-400 font-mono text-xs mt-1">›</span>
+                  <span className="text-sm">{style}</span>
                 </motion.li>
               ))}
             </ul>
           </div>
 
           {/* Languages */}
-          <div className="space-y-12">
-            <div>
-              <span className="text-sm font-medium text-slate-400 uppercase tracking-widest">
-                Sprachen
-              </span>
+          <div className="space-y-8">
+            <div className="font-mono text-xs text-zinc-600 uppercase tracking-widest">
+              Sprachen
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               {languages.map((lang, index) => (
                 <motion.div
                   key={lang.name}
                   initial={{ opacity: 0 }}
                   animate={isInView ? { opacity: 1 } : {}}
                   transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
-                  className="space-y-2"
+                  className="flex items-center justify-between py-3 border-b border-zinc-800"
                 >
-                  <div className="flex justify-between items-baseline">
-                    <span className="text-lg font-medium text-slate-900">{lang.name}</span>
-                    <span className="text-sm text-slate-500">{lang.level}</span>
-                  </div>
-                  <div className="h-px bg-slate-200" />
+                  <span className="text-zinc-300 text-sm">{lang.name}</span>
+                  <span className="text-zinc-500 text-xs font-mono">{lang.level}</span>
                 </motion.div>
               ))}
             </div>

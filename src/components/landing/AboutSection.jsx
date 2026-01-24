@@ -7,8 +7,8 @@ export default function AboutSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-32 md:py-40 bg-white border-b border-slate-100">
-      <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-12">
+    <section id="about" className="py-32 bg-[#0a0a0a] border-t border-zinc-800/50">
+      <div className="max-w-6xl mx-auto px-6 md:px-8 lg:px-12">
         <motion.div
           ref={ref}
           initial={{ opacity: 0 }}
@@ -17,45 +17,24 @@ export default function AboutSection() {
           className="space-y-16"
         >
           {/* Section Label */}
-          <div>
-            <span className="text-sm font-medium text-slate-400 uppercase tracking-widest">
-              Über mich
-            </span>
+          <div className="font-mono text-xs text-zinc-600 uppercase tracking-widest">
+            <span className="text-cyan-400">[</span> 01 <span className="text-cyan-400">]</span> Profil
           </div>
 
           {/* Content */}
           <div className="max-w-3xl space-y-8">
-            <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 leading-tight">
-              Technische Kompetenz trifft auf strukturierte Arbeitsweise
-            </h2>
-            
-            <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
+            <div className="space-y-6 text-lg text-zinc-300 leading-relaxed">
               <p>
-                Sven Kai Clauß ist ein erfahrener IT-Support-Spezialist mit mehrjähriger 
-                Praxis in professionellen Support-Umgebungen, unter anderem bei 
-                Mercedes-Benz und Lenovo. Sein Schwerpunkt liegt auf strukturierter 
-                Fehleranalyse, nachhaltiger Problemlösung und sauberer technischer 
-                Dokumentation.
+                Ich arbeite seit mehreren Jahren im professionellen IT-Support. 
+                Mein Schwerpunkt liegt auf strukturierter Fehleranalyse, nachhaltiger 
+                Problemlösung und sauberer Dokumentation.
               </p>
               <p>
-                Er verbindet technische Kompetenz mit klarer, verständlicher 
-                Kundenkommunikation und arbeitet sicher in komplexen Support- und 
-                Eskalationsumgebungen. Qualität, saubere Prozesse und nachvollziehbare 
-                Lösungen stehen im Mittelpunkt seiner Arbeitsweise.
+                Ich bewege mich sicher in komplexen Support- und Eskalationsumgebungen 
+                und lege Wert auf nachvollziehbare technische Entscheidungen. 
+                Klare Kommunikation und saubere Prozesse sind für mich kein Extra, 
+                sondern Voraussetzung.
               </p>
-            </div>
-
-            {/* Stats */}
-            <div className="flex gap-12 pt-8">
-              <div>
-                <div className="text-4xl font-semibold text-slate-900 mb-1">5+</div>
-                <div className="text-sm text-slate-500 uppercase tracking-wide">Jahre Erfahrung</div>
-              </div>
-              <div className="w-px bg-slate-200" />
-              <div>
-                <div className="text-4xl font-semibold text-slate-900 mb-1">1-3</div>
-                <div className="text-sm text-slate-500 uppercase tracking-wide">Support-Level</div>
-              </div>
             </div>
           </div>
         </motion.div>
