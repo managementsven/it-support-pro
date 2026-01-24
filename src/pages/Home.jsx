@@ -1,5 +1,6 @@
 import HeroSection from "@/components/landing/HeroSection";
 import AboutSection from "@/components/landing/AboutSection";
+import ContactPanel from "@/components/landing/ContactPanel";
 import SkillsGrid from "@/components/landing/SkillsGrid";
 import ExperienceSection from "@/components/landing/ExperienceSection";
 import WorkStyleSection from "@/components/landing/WorkStyleSection";
@@ -10,6 +11,7 @@ export default function Home() {
     <main className="font-sans antialiased">
       <HeroSection />
       <AboutSection />
+      <ContactPanel />
       <SkillsGrid />
       <ExperienceSection />
       <WorkStyleSection />

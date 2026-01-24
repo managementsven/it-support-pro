@@ -45,6 +45,31 @@ export default function HeroSection() {
             <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
             <span className="text-zinc-500">AVAILABLE</span>
           </div>
+
+          {/* Contact Panel */}
+          <div className="mt-16 border border-zinc-900 bg-zinc-950/30 p-4 inline-block">
+            <div className="font-mono text-[9px] text-zinc-600 uppercase tracking-[0.2em] mb-3">
+              Interface
+            </div>
+            <div className="flex gap-4">
+              <a 
+                href="mailto:business.clauss@proton.me"
+                className="flex items-center gap-2 text-xs text-zinc-400 hover:text-cyan-400 transition-colors group"
+              >
+                <span className="w-1 h-1 bg-zinc-700 group-hover:bg-cyan-400 transition-colors" />
+                <span>E-Mail</span>
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/sven-kai-clauß-6ab009267"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-xs text-zinc-400 hover:text-cyan-400 transition-colors group"
+              >
+                <span className="w-1 h-1 bg-zinc-700 group-hover:bg-cyan-400 transition-colors" />
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

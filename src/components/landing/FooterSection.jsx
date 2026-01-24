@@ -25,10 +25,32 @@ export default function FooterSection() {
           </div>
 
           {/* Footer */}
-          <div className="pt-8 border-t border-zinc-900">
-            <div className="flex items-center justify-between text-[10px] text-zinc-600 font-mono">
-              <div>SVEN KAI CLAUẞ / IT-SUPPORT</div>
-              <div>NRW, DE / {new Date().getFullYear()}</div>
+          <div className="pt-8 border-t border-zinc-900 space-y-6">
+            {/* Contact */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[10px]">
+              <div className="text-zinc-600 font-mono">SVEN KAI CLAUẞ / IT-SUPPORT</div>
+              <div className="flex gap-4">
+                <a 
+                  href="mailto:business.clauss@proton.me"
+                  className="text-zinc-600 hover:text-cyan-500 transition-colors font-mono"
+                >
+                  E-MAIL
+                </a>
+                <span className="text-zinc-800">|</span>
+                <a 
+                  href="https://www.linkedin.com/in/sven-kai-clauß-6ab009267"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-600 hover:text-cyan-500 transition-colors font-mono"
+                >
+                  LINKEDIN
+                </a>
+              </div>
+            </div>
+            
+            {/* Meta */}
+            <div className="text-[10px] text-zinc-700 font-mono">
+              NRW, DE / {new Date().getFullYear()}
             </div>
           </div>
         </motion.div>
