@@ -3,19 +3,25 @@ import AboutSection from "@/components/landing/AboutSection";
 import ContactPanel from "@/components/landing/ContactPanel";
 import SkillsGrid from "@/components/landing/SkillsGrid";
 import ExperienceSection from "@/components/landing/ExperienceSection";
+import TroubleshootingLog from "@/components/landing/TroubleshootingLog";
 import WorkStyleSection from "@/components/landing/WorkStyleSection";
 import FooterSection from "@/components/landing/FooterSection";
+import { Toaster } from "sonner";
 
 export default function Home() {
   return (
-    <main className="font-sans antialiased">
-      <HeroSection />
-      <AboutSection />
-      <ContactPanel />
-      <SkillsGrid />
-      <ExperienceSection />
-      <WorkStyleSection />
-      <FooterSection />
-    </main>
+    <>
+      <Toaster position="bottom-right" />
+      <main className="font-sans antialiased">
+        <HeroSection />
+        <AboutSection />
+        <ContactPanel />
+        <SkillsGrid />
+        <ExperienceSection />
+        <TroubleshootingLog />
+        <WorkStyleSection />
+        <FooterSection />
+      </main>
+    </>
   );
 }

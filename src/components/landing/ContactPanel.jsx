@@ -1,11 +1,30 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Mail, ExternalLink } from "lucide-react";
+import { Mail, ExternalLink, Copy } from "lucide-react";
+import { toast } from "sonner";
 
 export default function ContactPanel() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const handleCopyEmail = async (e) => {
+    e.preventDefault();
+    try {
+      await navigator.clipboard.writeText("business.clauss@proton.me");
+      toast.success("E-Mail kopiert – Bereit für Analyse", {
+        style: {
+          background: '#18181b',
+          color: '#a1a1aa',
+          border: '1px solid #27272a',
+          fontFamily: 'monospace',
+          fontSize: '11px'
+        }
+      });
+    } catch (err) {
+      toast.error("Kopieren fehlgeschlagen");
+    }
+  };
 
   return (
     <section className="py-20 bg-[#0a0a0a] border-b border-zinc-900">
@@ -30,6 +49,13 @@ export default function ContactPanel() {
 
               {/* Actions */}
               <div className="flex flex-col sm:flex-row gap-3">
+                <button
+                  onClick={handleCopyEmail}
+                  className="group flex items-center gap-3 px-4 py-2.5 border border-zinc-800 bg-zinc-950/50 hover:border-zinc-700 hover:bg-zinc-900/50 transition-all"
+                >
+                  <Copy className="w-3.5 h-3.5 text-zinc-600 group-hover:text-cyan-500 transition-colors" />
+                  <span className="text-xs text-zinc-400 font-mono">E-Mail kopieren</span>
+                </button>
                 <a
                   href="mailto:business.clauss@proton.me"
                   className="group flex items-center gap-3 px-4 py-2.5 border border-zinc-800 bg-zinc-950/50 hover:border-zinc-700 hover:bg-zinc-900/50 transition-all"

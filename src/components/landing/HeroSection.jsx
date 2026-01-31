@@ -1,6 +1,25 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+
+const terminalSequence = [
+  { delay: 400, text: "> Initializing system check..." },
+  { delay: 1000, text: "> Fetching escalation logs..." },
+  { delay: 1600, text: "> Analyzing support patterns..." },
+  { delay: 2200, text: "> Root cause identified: Enterprise-grade expertise" },
+  { delay: 2800, text: "> Status: OPERATIONAL", highlight: true }
+];
 
 export default function HeroSection() {
+  const [terminalLines, setTerminalLines] = useState([]);
+
+  useEffect(() => {
+    terminalSequence.forEach((line, index) => {
+      setTimeout(() => {
+        setTerminalLines(prev => [...prev, line]);
+      }, line.delay);
+    });
+  }, []);
+
   return (
     <section className="min-h-screen flex items-center bg-[#0a0a0a] relative overflow-hidden border-b border-zinc-900">
       {/* Subtle Grid */}
