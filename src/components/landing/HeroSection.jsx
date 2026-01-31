@@ -89,6 +89,38 @@ export default function HeroSection() {
               </a>
             </div>
           </div>
+
+          {/* Terminal Window */}
+          <div className="mt-12 border border-zinc-900 bg-zinc-950/50 overflow-hidden max-w-2xl">
+            <div className="flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border-b border-zinc-800">
+              <div className="flex gap-1.5">
+                <div className="w-2 h-2 rounded-full bg-zinc-700" />
+                <div className="w-2 h-2 rounded-full bg-zinc-700" />
+                <div className="w-2 h-2 rounded-full bg-zinc-700" />
+              </div>
+              <div className="font-mono text-[9px] text-zinc-600 ml-2">system-check.log</div>
+            </div>
+            <div className="p-4 font-mono text-xs space-y-1.5 min-h-[140px]">
+              {terminalLines.map((line, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className={line.highlight ? 'text-green-500' : 'text-zinc-500'}
+                >
+                  {line.text}
+                </motion.div>
+              ))}
+              {terminalLines.length > 0 && terminalLines.length < terminalSequence.length && (
+                <motion.span
+                  animate={{ opacity: [1, 0, 1] }}
+                  transition={{ duration: 0.8, repeat: Infinity }}
+                  className="inline-block w-2 h-3 bg-cyan-500 ml-1"
+                />
+              )}
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
