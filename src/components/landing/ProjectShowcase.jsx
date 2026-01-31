@@ -1,89 +1,90 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { Shield, Server, AlertTriangle, Database } from "lucide-react";
+import { useRef } from "react";
+import { Monitor, Wifi, HardDrive, User } from "lucide-react";
 
 const projects = [
   {
-    id: "#MB-8821",
-    title: "Enterprise Security Breach Response",
-    category: "Security",
-    context: "Mercedes-Benz",
-    priority: "CRITICAL",
-    icon: Shield,
-    problem: "Verdacht auf unauthorisierten Zugriff in kritischer Produktionsumgebung mit möglicher Datenkompromittierung",
-    analysisSteps: [
-      "Sofortige Isolation betroffener Systeme",
-      "Forensische Analyse der Access Logs",
-      "Identifikation der Angriffsvektoren",
-      "Cross-System-Korrelation mit SIEM"
-    ],
-    solution: "Zero-Trust-Architektur implementiert, betroffene Credentials rotiert, Enhanced Monitoring aufgesetzt",
-    impact: "< 45min Response Time / 0% Data Loss / Security Posture erhöht"
-  },
-  {
-    id: "#LVO-2947",
-    title: "Legacy System Integration Failure",
-    category: "Infrastructure",
+    id: "LVO-2024-3841",
+    title: "Dockingstation-Verbindungsfehler nach Windows-Update",
+    environment: "Production",
     context: "Lenovo",
-    priority: "HIGH",
-    icon: Server,
-    problem: "Kritischer Deployment-Fehler bei Migration zu neuer Support-Plattform mit Auswirkung auf globale Ticket-Workflows",
+    escalationLevel: "L2",
+    slaStatus: "Within SLA",
+    icon: Monitor,
+    affectedDevices: "Lenovo L14/L15 Gen 3",
+    problem: "Intermittierende Verbindungsfehler bei USB-C Dockingstations nach automatischem Windows 11 Feature-Update. Betroffen: ca. 180 Geräte im Außendienst.",
     analysisSteps: [
-      "Root Cause Analysis auf Middleware-Ebene",
-      "Kompatibilitätsprüfung Legacy APIs",
-      "Rollback-Strategie evaluiert",
-      "Datenmigrations-Pipeline debugged"
+      "Firmware-Versionen der Dockingstations überprüft",
+      "BIOS-Versionen im Vergleich (betroffene vs. funktionierende Geräte)",
+      "Ausschlussprinzip: Kabel, Netzteil, Board-Level-Diagnose",
+      "Event Viewer Analyse: USB-Controller Errors identifiziert"
     ],
-    solution: "Custom Adapter-Layer entwickelt, Staged Rollout mit Canary Deployment, Monitoring-Dashboard implementiert",
-    impact: "3.2k User betroffen / 6h Downtime / 100% Data Integrity"
+    solution: "Spezifischen Thunderbolt-Firmware-Patch via MECM ausgerollt. Gruppenrichtlinie für Windows Update temporär angepasst. Monitoring über 14 Tage.",
+    impact: "Resolution Time: 4h / 0 Ticket-Reopens / Rollout: 3 Tage"
   },
   {
-    id: "#MB-7134",
-    title: "Performance Degradation Analysis",
-    category: "Infrastructure",
+    id: "MB-2023-7622",
+    title: "VPN-Authentifizierungsfehler Außendienst",
+    environment: "Production",
     context: "Mercedes-Benz",
-    priority: "HIGH",
-    icon: Database,
-    problem: "Massive Performance-Einbußen in Business-Critical Application nach Wartungsfenster",
+    escalationLevel: "L3",
+    slaStatus: "Escalated",
+    icon: Wifi,
+    affectedDevices: "~450 Mobile Clients",
+    problem: "Massenhafte VPN-Authentifizierungsfehler nach geplantem Root-CA-Zertifikatswechsel. Kritischer Impact auf Außendienst-Mitarbeiter.",
     analysisSteps: [
-      "Performance Profiling mit APM Tools",
-      "Database Query Optimization",
-      "Cache-Layer Analyse",
-      "Network Latency Measurements"
+      "Logfile-Analyse VPN-Client (Cisco AnyConnect)",
+      "Lokale Zertifikatsspeicher auf Testgeräten geprüft",
+      "Root-CA-Chain-Verifizierung fehlgeschlagen",
+      "Gruppenrichtlinien-Verteilung verzögert erkannt"
     ],
-    solution: "Index-Strategie überarbeitet, Query-Cache optimiert, Load Balancer neu konfiguriert",
-    impact: "92% Performance-Steigerung / < 2h Resolution Time"
+    solution: "PowerShell-Skript für manuellen Zertifikats-Import entwickelt. GPO-Update beschleunigt. Kommunikation via Service-Portal und direkte Anrufe an betroffene User.",
+    impact: "MTTR: 6h / Kritischer Business Impact / Post-Mortem dokumentiert"
   },
   {
-    id: "#LVO-8456",
-    title: "Critical Data Recovery Operation",
-    category: "Incident Response",
+    id: "LVO-2024-1203",
+    title: "Massenhafte Outlook-Abstürze nach Patch",
+    environment: "Production",
     context: "Lenovo",
-    priority: "CRITICAL",
-    icon: AlertTriangle,
-    problem: "Hardwareausfall mit Datenverlustrisiko auf produktiver Enterprise-Infrastruktur",
+    escalationLevel: "L2",
+    slaStatus: "Within SLA",
+    icon: HardDrive,
+    affectedDevices: "~320 Clients",
+    problem: "Nach Microsoft Office Patch treten reproduzierbare Outlook-Abstürze beim Öffnen von .msg-Dateien auf.",
     analysisSteps: [
-      "Emergency Backup Verification",
-      "Hardware Diagnostics unter Zeitdruck",
-      "Recovery Point Objective Assessment",
-      "Koordination mit Vendor Support"
+      "Event Viewer: Application Error 1000 identifiziert",
+      "Office Repair Tool auf Testgeräten ausgeführt",
+      "Patch-Historie analysiert (KB-Nummer isoliert)",
+      "Add-In-Kompatibilität überprüft"
     ],
-    solution: "Express-Ersatzteil innerhalb SLA, Hot-Swap durchgeführt, vollständige Datenwiederherstellung",
-    impact: "0% Datenverlust / Business Continuity gewährleistet"
+    solution: "Problematischer Patch via WSUS deaktiviert. Koordination mit Microsoft Support für Hotfix. Temporärer Workaround über Add-In-Deaktivierung kommuniziert.",
+    impact: "Downtime: 2.5h / Workaround verfügbar / Hotfix nach 48h deployed"
+  },
+  {
+    id: "MB-2024-0891",
+    title: "Druckertreiber-Konflikt nach Citrix-Upgrade",
+    environment: "Production",
+    context: "Mercedes-Benz",
+    escalationLevel: "L2",
+    slaStatus: "Within SLA",
+    icon: User,
+    affectedDevices: "Citrix Virtual Apps",
+    problem: "Nach Citrix Virtual Apps Upgrade auf Version 2402 können User nicht mehr auf Netzwerkdrucker zugreifen. Error Code 0x00000709.",
+    analysisSteps: [
+      "Citrix Universal Print Driver Kompatibilität geprüft",
+      "Registry-Einträge auf Session Hosts analysiert",
+      "Print Spooler Logs ausgewertet",
+      "Treiber-Mapping im Citrix Studio überprüft"
+    ],
+    solution: "Universal Print Driver neu deployed. Print Server Policies angepasst. Session Hosts staged rebootet. Knowledge Base Artikel für Support-Team erstellt.",
+    impact: "Resolution: 3h / 0 Data Loss / 250 User betroffen"
   }
 ];
-
-const categoryColors = {
-  Security: "text-red-500 bg-red-950/30 border-red-900/50",
-  Infrastructure: "text-blue-500 bg-blue-950/30 border-blue-900/50",
-  "Incident Response": "text-amber-500 bg-amber-950/30 border-amber-900/50"
-};
 
 export default function ProjectShowcase() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [hoveredProject, setHoveredProject] = useState(null);
 
   return (
     <section className="py-32 bg-[#0a0a0a] border-b border-zinc-900">
@@ -98,10 +99,10 @@ export default function ProjectShowcase() {
           {/* Header */}
           <div className="space-y-3">
             <div className="font-mono text-[10px] text-zinc-600 uppercase tracking-[0.2em]">
-              05 / Project Archive
+              05 / Ticket Archive
             </div>
             <p className="text-sm text-zinc-500 max-w-2xl">
-              Ausgewählte Enterprise-Eskalationen und kritische Incident-Response-Operationen
+              Dokumentierte Support-Fälle aus Enterprise-Umgebungen
             </p>
           </div>
 
@@ -116,64 +117,53 @@ export default function ProjectShowcase() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  onMouseEnter={() => setHoveredProject(project.id)}
-                  onMouseLeave={() => setHoveredProject(null)}
-                  className="relative border border-zinc-900 bg-zinc-950/30 overflow-hidden group hover:border-zinc-800 transition-colors"
+                  className="border border-zinc-900 bg-zinc-950/30 hover:border-cyan-950 transition-colors group"
                 >
-                  {/* Scan Line Effect */}
-                  {hoveredProject === project.id && (
-                    <motion.div
-                      initial={{ top: 0 }}
-                      animate={{ top: "100%" }}
-                      transition={{ duration: 1.5, ease: "linear" }}
-                      className="absolute left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent z-10 pointer-events-none"
-                    />
-                  )}
-
-                  {/* Terminal Header */}
+                  {/* Header */}
                   <div className="flex items-center justify-between px-5 py-3 border-b border-zinc-900 bg-zinc-900/30">
-                    <div className="flex items-center gap-2">
-                      <div className="flex gap-1.5">
-                        <div className="w-2 h-2 rounded-full bg-zinc-700" />
-                        <div className="w-2 h-2 rounded-full bg-zinc-700" />
-                        <div className="w-2 h-2 rounded-full bg-zinc-700" />
-                      </div>
-                      <span className="font-mono text-[9px] text-zinc-600 ml-2">{project.id}</span>
+                    <div className="flex items-center gap-3">
+                      <Icon className="w-3.5 h-3.5 text-zinc-600" />
+                      <span className="font-mono text-[10px] text-zinc-500">{project.id}</span>
                     </div>
-                    <div className={`font-mono text-[8px] px-2 py-0.5 border ${
-                      project.priority === "CRITICAL" 
-                        ? "text-red-500 border-red-900/50 bg-red-950/30" 
-                        : "text-amber-500 border-amber-900/50 bg-amber-950/30"
-                    }`}>
-                      {project.priority}
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-[9px] text-zinc-600 px-2 py-0.5 border border-zinc-800 bg-zinc-900/50">
+                        {project.escalationLevel}
+                      </span>
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-5 space-y-5">
+                  <div className="p-5 space-y-4">
                     {/* Title & Meta */}
-                    <div className="space-y-3">
-                      <div className="flex items-start gap-3">
-                        <Icon className="w-4 h-4 text-cyan-500 mt-1 flex-shrink-0" />
-                        <div className="space-y-2 flex-1">
-                          <h3 className="text-sm font-semibold text-white leading-tight">
-                            {project.title}
-                          </h3>
-                          <div className="flex flex-wrap gap-2">
-                            <span className={`text-[9px] font-mono px-2 py-0.5 border ${categoryColors[project.category]}`}>
-                              {project.category}
-                            </span>
-                            <span className="text-[9px] font-mono text-zinc-600 px-2 py-0.5 border border-zinc-800 bg-zinc-900/30">
-                              {project.context}
-                            </span>
-                          </div>
-                        </div>
+                    <div className="space-y-2">
+                      <h3 className="text-sm font-medium text-white leading-tight">
+                        {project.title}
+                      </h3>
+                      <div className="flex flex-wrap gap-2 text-[9px] font-mono">
+                        <span className="text-zinc-600 px-2 py-0.5 border border-zinc-800 bg-zinc-900/30">
+                          {project.context}
+                        </span>
+                        <span className="text-zinc-600 px-2 py-0.5 border border-zinc-800 bg-zinc-900/30">
+                          {project.environment}
+                        </span>
+                        <span className={`px-2 py-0.5 border ${
+                          project.slaStatus === "Within SLA" 
+                            ? "text-green-600 border-green-900/50 bg-green-950/20"
+                            : "text-amber-600 border-amber-900/50 bg-amber-950/20"
+                        }`}>
+                          {project.slaStatus}
+                        </span>
                       </div>
+                    </div>
+
+                    {/* Affected Devices */}
+                    <div className="text-[10px] font-mono text-zinc-600">
+                      Betroffene Geräte: {project.affectedDevices}
                     </div>
 
                     {/* Problem */}
                     <div>
-                      <div className="font-mono text-[8px] text-zinc-600 uppercase tracking-wider mb-2">
+                      <div className="font-mono text-[9px] text-zinc-600 uppercase tracking-wider mb-2">
                         Problem
                       </div>
                       <p className="text-xs text-zinc-400 leading-relaxed">
@@ -183,13 +173,13 @@ export default function ProjectShowcase() {
 
                     {/* Analysis */}
                     <div>
-                      <div className="font-mono text-[8px] text-zinc-600 uppercase tracking-wider mb-2">
-                        Root Cause Analysis
+                      <div className="font-mono text-[9px] text-zinc-600 uppercase tracking-wider mb-2">
+                        Analyse
                       </div>
-                      <ul className="space-y-1.5">
-                        {project.analysisSteps.slice(0, 3).map((step, idx) => (
+                      <ul className="space-y-1">
+                        {project.analysisSteps.map((step, idx) => (
                           <li key={idx} className="flex items-start gap-2 text-[11px] text-zinc-500">
-                            <span className="text-cyan-500 mt-0.5 text-[8px]">→</span>
+                            <span className="text-zinc-700 mt-0.5">—</span>
                             <span>{step}</span>
                           </li>
                         ))}
@@ -198,8 +188,8 @@ export default function ProjectShowcase() {
 
                     {/* Solution */}
                     <div>
-                      <div className="font-mono text-[8px] text-zinc-600 uppercase tracking-wider mb-2">
-                        Solution
+                      <div className="font-mono text-[9px] text-zinc-600 uppercase tracking-wider mb-2">
+                        Lösung
                       </div>
                       <p className="text-[11px] text-zinc-500 leading-relaxed">
                         {project.solution}
@@ -207,11 +197,8 @@ export default function ProjectShowcase() {
                     </div>
 
                     {/* Impact */}
-                    <div className="pt-4 border-t border-zinc-900">
-                      <div className="font-mono text-[8px] text-zinc-700 uppercase tracking-wider mb-1">
-                        Impact
-                      </div>
-                      <div className="font-mono text-[10px] text-zinc-600">
+                    <div className="pt-3 border-t border-zinc-900">
+                      <div className="font-mono text-[9px] text-zinc-700">
                         {project.impact}
                       </div>
                     </div>
@@ -221,10 +208,10 @@ export default function ProjectShowcase() {
             })}
           </div>
 
-          {/* Meta */}
+          {/* Footer Meta */}
           <div className="pt-8 border-t border-zinc-900 flex items-center justify-between font-mono text-[9px] text-zinc-700">
-            <span>ARCHIVE: {projects.length} CASES</span>
-            <span>STATUS: DOCUMENTED</span>
+            <span>DOKUMENTIERT: {projects.length} TICKETS</span>
+            <span>STATUS: ARCHIVIERT</span>
           </div>
         </motion.div>
       </div>
