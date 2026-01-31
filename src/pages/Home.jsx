@@ -4,6 +4,7 @@ import ContactPanel from "@/components/landing/ContactPanel";
 import SkillsGrid from "@/components/landing/SkillsGrid";
 import ExperienceSection from "@/components/landing/ExperienceSection";
 import TroubleshootingLog from "@/components/landing/TroubleshootingLog";
+import ProjectShowcase from "@/components/landing/ProjectShowcase";
 import WorkStyleSection from "@/components/landing/WorkStyleSection";
 import FooterSection from "@/components/landing/FooterSection";
 import { Toaster } from "sonner";
@@ -19,6 +20,7 @@ export default function Home() {
         <SkillsGrid />
         <ExperienceSection />
         <TroubleshootingLog />
+        <ProjectShowcase />
         <WorkStyleSection />
         <FooterSection />
       </main>
